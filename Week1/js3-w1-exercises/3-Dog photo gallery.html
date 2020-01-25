@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dog photo gallery</title>
+</head>
+<body>
+    <ul>
+        <li></li>
+    </ul>
+<button id="but1" type="button" ></button>
+
+<button id="but2" type="button" "></button>
+<script>
+
+const but2 =document.getElementById('but1');
+ but2.addEventListener('click',loadDoc);
+
+ 
+
+ function loadDoc(){
+ const dog = new XMLHttpRequest();
+ dog.open('Get', "https://dog.ceo/api/breeds/image/random" ,true);
+ dog.send()
+ dog.onreadystatechange = function(){
+     if (this.readyState == 4 && this.status ==200 ){
+         const li =document.getElementsByTagName('li');  
+         const image =document.createElement('img');
+         image.innerHTML= this.response;
+         li.append(image);
+     }
+
+ }
+
+ 
+};
+
+
+const but1 =document.getElementById('but2');
+but1.addEventListener('click',axiosLis);
+function axiosLis(){
+axios.get("https://dog.ceo/api/breeds/image/random")
+.then(function(response){
+    const li =document.getElementsByTagName('li');  
+    const image =document.createElement('img');
+    image.innerHTML= this.response;
+      li.append(image);
+})
+.catch(err => console.log(err));
+};
+
+ 
+
+
+</script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</body>
+</html>
