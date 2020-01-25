@@ -1,0 +1,17 @@
+
+
+ ## 1- Write down 2 insights you’ve gained listening to the developers’ personal stories:
+
+    * you can continue as a developer even if you don't have a degree from university, positive message  
+    *don't move to other programming languages if you don't finish the past one 
+
+
+ ## 2- Summarize “company life as a professional developer” in your view (max. 150 words):   
+
+    as a professional developer you have to read more than writing, to reading the code for a find the problem to know how you can fix it, 
+    also divide the problem to many paces and test those every step, ask your colleagues if they had the same problem before to save your time.  
+
+## 3- Write down 2 soft skills you need to work on: 
+
+    *go to meetup or startup to change experience
+    * knowledge technology 
