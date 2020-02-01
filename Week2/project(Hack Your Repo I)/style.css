@@ -1,0 +1,135 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#root {
+  width:calc(100%-20px);
+  margin: 10px;
+  background-color: white;
+  font-family: 'Roboto', Lato, sans-serif;
+  background-color: #EDEDED;
+
+}
+
+.header {
+  display: flex;
+  justify-content: start;
+  align-items: baseline;
+  background-color: #404BC9;
+}
+.title {
+  padding: 40px;
+  text-align: left;
+  color: white;
+  font-size: 30px;
+  position: relative;
+ background-color: #404BC9;
+}
+
+.select {
+  font-size: 20px;
+  padding: 5px 10px;
+}
+
+.container {
+  width: calc(100% -20px);
+  margin-left: 10px;
+  margin-right: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.contributors-container {
+  width:calc(50%);
+  background-color:white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 30px;
+}
+.repo-container {
+  width:50%;
+  margin-right: 10px;
+  padding: 20px 30px;
+  max-height: 210px;
+  background-color: white;
+}
+.contributorHolder {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 2px solid#C2C2C2;
+}
+.imgHolder {
+  padding: 10px;
+}
+.loginName {
+  padding-top: 30px;
+}
+.loginName a {
+  text-decoration: none;
+}
+.buttonDiv {
+  padding: 30px;
+}
+.reposTable td {
+  padding: 5px;
+}
+[src] {
+  width: 100px;
+}
+.alert-error {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  padding: 40px;
+}
+.alert-error:after {
+  content: '';
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: red;
+  opacity: 0.4;
+  border-radius: 30px;
+}
+
+
+@media  (max-width: 780px) {
+  #root {
+  width:calc(100%-10px);
+  margin: 5px;
+ 
+  
+ }
+ .header {
+  display: flex;
+  justify-content: center;
+   
+}
+.title {
+  padding: 20px;
+  font-size: 20px;
+}
+.container {
+  width: calc(100% -10px);
+    margin-left: 5px;
+  margin-right: 5px;
+
+}
+.repo-container {
+  margin-right: 5px;
+  padding: 10px 15px;
+  max-height: 272px;
+}
+.contributors-container {
+  padding: 10px;
+}
+[src] {
+  width: 60px;
+}
+
+}
