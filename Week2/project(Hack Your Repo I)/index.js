@@ -66,24 +66,38 @@ function reposSet(repoContainer, repos) {
         }
     }
 }
-function SecondPromise(contributorsContainer, url) {
-    fetch(url).then(contributors => {
-        contributors
-            .json()
-            .then(contr => {
-                contr.forEach(contributor => {
-                    contributorsSet(contributor, contributorsContainer);
-                });
-            })
-            .catch(err => {
-                createAndAppend('div', root, {
-                    text: err.message,
-                    class: 'alert-error',
-                });
-            });
-    });
-}
+// function SecondPromise(contributorsContainer, url) {
+//     fetch(url).then(contributors => {
+//         contributors
+//             .json()
+//             .then(contr => {
+//                 contr.forEach(contributor => {
+//                     contributorsSet(contributor, contributorsContainer);
+//                 });
+//             })
+//             .catch(err => {
+//                 createAndAppend('div', root, {
+//                     text: err.message,
+//                     class: 'alert-error',
+//                 });
+//             });
+//     });
+// }
 
+async function SecondPromise(contributorsContainer, url){
+    try{
+        const fetch = await axios.get(url);
+        const repos = await fetch.json()
+        return repos
+
+    }catch(err){
+        createAndAppend('div', contributorsContainer, {
+        text: err.message,
+        class: 'alert-error',
+      });
+    }
+    
+}
 
 
 function contributorsSet(contributor, contributorsContainer) {
@@ -120,7 +134,8 @@ function contributorsSet(contributor, contributorsContainer) {
         }
     }
 }
-function main(repos) {
+// function main(repos) {
+async function main(repos) {
     const container = createAndAppend('div', root, { class: 'container' });
     repos.sort((rep, next) => rep.name.localeCompare(next.name));
     const reposContainer = createAndAppend('div', container);
@@ -155,8 +170,8 @@ function main(repos) {
 }
 
 
-
-function promise(url) {
+//function promise(url) {
+ async function promise(url) {
     fetch(url)
         .then(res => {
             res.json().then(repos => {
