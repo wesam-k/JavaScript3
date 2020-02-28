@@ -7,52 +7,54 @@
     <title>Dog photo gallery</title>
 </head>
 <body>
-    <ul>
-        <li></li>
+    <ul id="ulImg">
+        
     </ul>
-<button id="but1" type="button" ></button>
+<button id="butXml" type="button" >click me</button>
 
-<button id="but2" type="button" "></button>
+<button id="butAxios" type="button" ">click me</button>
 <script>
 
-const but2 =document.getElementById('but1');
- but2.addEventListener('click',loadDoc);
-
- 
-
+const butAxios =document.getElementById('butXml');
+butAxios.addEventListener('click',loadDoc);
  function loadDoc(){
+ const  url= "https://dog.ceo/api/breeds/image/random"
  const dog = new XMLHttpRequest();
- dog.open('Get', "https://dog.ceo/api/breeds/image/random" ,true);
- dog.send()
- dog.onreadystatechange = function(){
-     if (this.readyState == 4 && this.status ==200 ){
-         const li =document.getElementsByTagName('li');  
+  dog.onload = function(){
+     if (this.readyState === 4 && this.status ===200 ){
+         const ul =document.getElementById("ulImg")
+         const li =document.createElement('li');  
          const image =document.createElement('img');
-         image.innerHTML= this.response;
-         li.append(image);
+         image.setAttribute('src',dog.response.message)
+         li.appendChild(image);
+         ul.appendChild(li)
+     }else{(err)=>{
+         console.log(err)
+        }
      }
-
  }
-
- 
+ dog.open('Get', url );
+ dog.send()
 };
 
 
-const but1 =document.getElementById('but2');
+const but1 =document.getElementById('butAxios');
 but1.addEventListener('click',axiosLis);
 function axiosLis(){
-axios.get("https://dog.ceo/api/breeds/image/random")
+    const  url= "https://dog.ceo/api/breeds/image/random"
+axios
+.get(url)
 .then(function(response){
-    const li =document.getElementsByTagName('li');  
+    const ul =document.getElementById("ulImg")
+    const li =document.createElement('li');  
     const image =document.createElement('img');
-    image.innerHTML= this.response;
-      li.append(image);
+    image.setAttribute('src',dog.response.message)
+    li.appendChild(image);
+    ul.appendChild(li);
+
 })
-.catch(err => console.log(err));
-};
-
- 
-
+.catch(err => console.log(err))
+}
 
 </script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
